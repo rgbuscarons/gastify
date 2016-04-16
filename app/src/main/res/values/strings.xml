@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gastos</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="NuevoGasto">Nuevo Gasto</string>
+    <string name="Cuentas">Cuentas</string>
+    <string name="configuracion">Configuración</string>
+    <string name="title_activity_nuevo_gasto">NuevoGasto</string>
+    <string name="title_activity_nuevo_limite">NuevoLimite</string>
+</resources>
