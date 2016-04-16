@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="NuevoGasto">Nuevo Gasto</string>
+    <string name="Cuentas">Cuentas</string>
+    <string name="configuracion">Configuración</string>
+</resources>
