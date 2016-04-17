@@ -25,7 +25,7 @@ public class MenuPrincipal extends ActionBarActivity {
         setContentView(R.layout.activity_menu_principal);
 
         //Controlador
-        Controlador controlador = new Controlador();
+        Controlador controlador = Controlador.getInstance();
 
         //Botones
         this.button_new_gasto = (Button) findViewById(R.id.new_gasto) ;
@@ -92,6 +92,7 @@ public class MenuPrincipal extends ActionBarActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MenuPrincipal.this, NuevoGasto.class);
+                    startActivity(intent);
                 }
             });
         }
@@ -101,6 +102,7 @@ public class MenuPrincipal extends ActionBarActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(MenuPrincipal.this, NuevoLimite.class);
+                    startActivity(intent);
                 }
             });
         }

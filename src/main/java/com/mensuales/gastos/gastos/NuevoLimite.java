@@ -25,7 +25,7 @@ public class NuevoLimite extends ActionBarActivity {
         this.nombre=(EditText) findViewById(R.id.nombre);
         this.limit=(EditText) findViewById(R.id.limit);
         this.guardar=(Button) findViewById(R.id.button_guardar);
-        this.controlador=new Controlador();
+        this.controlador=Controlador.getInstance();
 
         this.guardar.setOnClickListener(new View.OnClickListener() {
             @Override

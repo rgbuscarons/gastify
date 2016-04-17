@@ -10,10 +10,18 @@ public class Controlador {
 
     private ArrayList<Gasto> Gastos=null;
     private ArrayList<Limite> Limites=null;
+    private static Controlador controlador=null;
 
-
-    public Controlador(){
+    private Controlador() {
+        // Exists only to defeat instantiation.
         ini();
+    }
+
+    public static Controlador getInstance(){
+        if(controlador == null) {
+            controlador = new Controlador();
+        }
+        return controlador;
     }
 
     private void ini(){

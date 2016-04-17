@@ -24,7 +24,7 @@ public class NuevoGasto extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        controlador = new Controlador();
+        controlador = Controlador.getInstance();
         importe = (EditText) findViewById(R.id.importe);
         fecha = (EditText) findViewById(R.id.fecha);
         limites = (Spinner) findViewById(R.id.limites);
