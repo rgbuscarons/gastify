@@ -30,11 +30,23 @@ public class MenuPrincipal extends ActionBarActivity {
         //Botones
         this.button_new_gasto = (Button) findViewById(R.id.new_gasto) ;
 
-        Pulsar(this.button_new_gasto);
+        this.button_new_gasto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this, NuevoGasto.class);
+                startActivity(intent);
+            }
+        });
 
         this.button_new_limite = (Button) findViewById(R.id.show_cuentas) ;
 
-        Pulsar(this.button_new_limite);
+        this.button_new_limite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this, NuevoLimite.class);
+                startActivity(intent);
+            }
+        });
 
 
         //Fragment
@@ -83,31 +95,4 @@ public class MenuPrincipal extends ActionBarActivity {
             return rootView;
         }
     }
-
-    private void Pulsar(Button boton)
-    {
-        if (boton == this.button_new_gasto)
-        {
-            boton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(MenuPrincipal.this, NuevoGasto.class);
-                    startActivity(intent);
-                }
-            });
-        }
-        else if (boton == this.button_new_limite)
-        {
-            boton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(MenuPrincipal.this, NuevoLimite.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
-    }
-
-
 }
