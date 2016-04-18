@@ -17,8 +17,6 @@ import android.widget.Toast;
 
 public class MenuPrincipal extends ActionBarActivity {
 
-    private Button button_new_gasto;
-    private Button button_new_limite;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,26 +25,7 @@ public class MenuPrincipal extends ActionBarActivity {
         //Controlador
         Controlador controlador = Controlador.getInstance();
 
-        //Botones
-        this.button_new_gasto = (Button) findViewById(R.id.new_gasto) ;
 
-        this.button_new_gasto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, NuevoGasto.class);
-                startActivity(intent);
-            }
-        });
-
-        this.button_new_limite = (Button) findViewById(R.id.show_cuentas) ;
-
-        this.button_new_limite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, NuevoLimite.class);
-                startActivity(intent);
-            }
-        });
 
 
         //Fragment
@@ -85,6 +64,8 @@ public class MenuPrincipal extends ActionBarActivity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        private Button button_new_gasto;
+        private Button button_new_limite;
         public PlaceholderFragment() {
         }
 
@@ -92,6 +73,26 @@ public class MenuPrincipal extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_menu_principal, container, false);
+            //Botones
+            this.button_new_gasto = (Button) rootView.findViewById(R.id.new_gasto) ;
+
+            this.button_new_gasto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), NuevoGasto.class);
+                    startActivity(intent);
+                }
+            });
+
+            this.button_new_limite = (Button) rootView.findViewById(R.id.show_cuentas) ;
+
+            this.button_new_limite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), NuevoLimite.class);
+                    startActivity(intent);
+                }
+            });
             return rootView;
         }
     }

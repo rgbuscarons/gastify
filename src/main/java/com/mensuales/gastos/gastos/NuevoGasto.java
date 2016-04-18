@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -16,33 +17,35 @@ import java.util.Date;
 public class NuevoGasto extends ActionBarActivity {
 
     private Controlador controlador=null;
-    private Gasto gasto=null;
-    private EditText importe=null;
-    private EditText fecha=null;
+    private Gasto gasto;
+    private EditText importe;
+    private EditText fecha;
     private Spinner limites=null;
     private Button guardar=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        controlador = Controlador.getInstance();
-        importe = (EditText) findViewById(R.id.importe);
-        fecha = (EditText) findViewById(R.id.fecha);
-        limites = (Spinner) findViewById(R.id.limites);
-        guardar = (Button) findViewById(R.id.button_guardar);
+        setContentView(R.layout.activity_nuevo_gasto);
+        this.controlador = Controlador.getInstance();
+        this.importe = (EditText) findViewById(R.id.nuevo_importe);
+        this.fecha = (EditText) findViewById(R.id.nueva_fecha);
+        this.limites = (Spinner) findViewById(R.id.limites);
+        this.guardar = (Button) findViewById(R.id.button_guardar);
         ini();
 
         this.guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(NuevoGasto.this.importe.getText().toString()!="" && NuevoGasto.this.fecha.getText().toString()!=""){
-                    controlador.NewGasto(NuevoGasto.this.importe.getText().toString(),NuevoGasto.this.fecha.getText().toString(),NuevoGasto.this.limites.getSelectedItem().toString());
+                if(NuevoGasto.this.importe.getText()!=null && NuevoGasto.this.fecha.getText()!=null){
+                    String impo=NuevoGasto.this.importe.getText().toString();
+                    String fecha=NuevoGasto.this.fecha.getText().toString();
+                    String cuenta=NuevoGasto.this.limites.getSelectedItem().toString();
+                    controlador.NewGasto(impo,fecha,cuenta);
                     NuevoGasto.this.finish();
                 }
 
             }
         });
-
-        setContentView(R.layout.activity_nuevo_gasto);
     }
 
 
@@ -69,9 +72,15 @@ public class NuevoGasto extends ActionBarActivity {
     }
 
     private void ini(){
-        fecha.setText(new Date().getDate());
-        ArrayList<Limite> limites=controlador.getLimites();
-        limites.addAll(limites);
+        this.fecha.setText(new Date().toString());
+        ArrayList<String> lista=new ArrayList<>();
+        for(Limite limi: controlador.getLimites()){
+            lista.add(limi.getNombre().toString());
+        }
+        ArrayAdapter<String> adp= new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,lista);
+        adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.limites.setAdapter(adp);
 
     }
 }

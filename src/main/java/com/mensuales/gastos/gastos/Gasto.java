@@ -7,17 +7,17 @@ import java.util.Date;
  */
 public class Gasto {
 
-    private int fechaGasto=0;
+    private String fechaGasto;
     private float importeGasto=0;
     private String nombre=null;
 
     public Gasto(){}
 
-    public int getFechaGasto() {
+    public String getFechaGasto() {
         return fechaGasto;
     }
 
-    public void setFechaGasto(int fechaGasto) {
+    public void setFechaGasto(String fechaGasto) {
         this.fechaGasto = fechaGasto;
     }
 

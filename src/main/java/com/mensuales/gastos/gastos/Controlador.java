@@ -32,7 +32,7 @@ public class Controlador {
 
     public void NewGasto(String numero,String fecha, String nombre){
         Gasto gasto = new Gasto();
-        gasto.setFechaGasto(Integer.valueOf(fecha));
+        gasto.setFechaGasto(fecha);
         gasto.setImporteGasto(Float.valueOf(numero));
         gasto.setNombre(nombre);
         Gastos.add(gasto);

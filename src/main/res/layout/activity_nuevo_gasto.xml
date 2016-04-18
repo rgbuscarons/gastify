@@ -9,16 +9,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/importe"
+        android:id="@+id/nuevo_importe"
         android:layout_alignParentTop="true"
         android:layout_marginTop="66dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fecha"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +28,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Fecha del Gasto"
         android:id="@+id/textView_fechGasto"
-        android:layout_below="@+id/importe"
+        android:layout_below="@+id/nuevo_importe"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="45dp" />
@@ -56,4 +49,14 @@
         android:id="@+id/button_guardar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/nueva_fecha"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
